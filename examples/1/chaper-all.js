@@ -7,7 +7,7 @@
  * @Date:   2016-09-01-01:41:24
  *
  * @(demo)Last modified by:   SuperWoods
- * @(demo)Last modified time: 2016-09-01-04:10:57
+ * @(demo)Last modified time: 2016-09-01-04:35:43
  */
 var BOOK_SITE = 'http://www.23wx.com/html/';
 var BOOK_ID = '8/8130';
@@ -36,6 +36,7 @@ var c = new Crawler({
         // current_book.latest_chapter = $('#info p').eq(3).html();
         // current_book.intro = $('#intro').html();
         current_book.chapters = [];
+
         urls.each(function (i, e) {
             var url = $(e);
             var _url = url.attr('href');
@@ -47,16 +48,22 @@ var c = new Crawler({
                 url: _url
             }
             current_book.chapters.push(chapter);
-            // one(chapter);
+            one(chapter);
         });
+
         // write_config
         utils.write_config(current_book);
-        var chapter = {
-            "num": "2290306",
-            "title": "第一章 注入灵魂成功",
-            "url": "2290306.html"
-        }
-        one(chapter);
+        // var chapter = {
+        //     "num": "2290306",
+        //     "title": "第一章 注入灵魂成功",
+        //     "url": "2290306.html"
+        // }
+        // one(chapter);
+
+        // for (var i = 0, j = current_book.max; i < j; i++) {
+        //     console.log(i);
+        //     one(current_book.chapters[i]);
+        // }
     }
 });
 
@@ -70,15 +77,13 @@ function one(chapter) {
         // The global callback won't be called
         callback: function (error, result, $) {
             var content = $('#contents').html();
-
             // write_chapter
             // utils.write_chapter(chapter, content);
 
             // write_config content json
             chapter.content = content;
             utils.write_config(chapter, true); // book(JSON obj), setNameOn(Boolean)
-
-            process.exit(); // 开启这个会导致**异步写入(fs.writeFile)**失效
+            // process.exit(); // 开启这个会导致**异步写入(fs.writeFile)**失效
         }
     }]);
 }

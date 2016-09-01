@@ -7,7 +7,7 @@
  * @Date:   2016-09-01-11:08:43
  *
  * @(demo)Last modified by:   SuperWoods
- * @(demo)Last modified time: 2016-09-01-12:48:08
+ * @(demo)Last modified time: 2016-09-01-03:18:01
  */
 
 var BOOK_URL = 'http://www.23wx.com/html/8/8130/';
@@ -20,7 +20,7 @@ var c = new Crawler({
     jQuery: jsdom,
     maxConnections: 100,
     forceUTF8: true,
-    // incomingEncoding: 'gb2312',
+    incomingEncoding: 'gb2312',
     // This will be called for each crawled page
     callback: function (error, result, $) {
 

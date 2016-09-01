@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "crawler": "^0.4.3",
+    "debug": "^2.2.0",
     "jsdom": "^9.4.5",
     "mkdirp": "^0.5.1"
   }
