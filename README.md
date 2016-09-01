@@ -10,7 +10,8 @@ learn i5ting's node-crawler
 
 - [Node.js写爬虫系列之第1章](http://mp.weixin.qq.com/s?__biz=MzAxMTU0NTc4Nw==&mid=2661157293&idx=1&sn=c34357d77e2fa5f150d9e8061dc3daea&scene=4#wechat_redirect)
 
-  <https://github.com/i5ting/githubrank>
+  - <https://www.npmjs.com/package/crawler>
+  - <https://www.npmjs.com/package/jsdom>
 
 - [Node.js写爬虫系列之第2章](http://mp.weixin.qq.com/s?__biz=MzAxMTU0NTc4Nw==&mid=2661157298&idx=1&sn=490c90f069855bd1ef42cc261f78a32c&scene=4#wechat_redirect)
 
