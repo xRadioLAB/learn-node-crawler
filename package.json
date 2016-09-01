@@ -1,0 +1,46 @@
+{
+    "name": "learn-node-crawler",
+    "version": "0.0.1",
+    "description": "learn i5ting's node-crawler",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/xinhuaRadioLAB/learn-node-crawler.git"
+    },
+    "author": "superwoods",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/xinhuaRadioLAB/learn-node-crawler/issues"
+    },
+    "homepage": "https://github.com/xinhuaRadioLAB/learn-node-crawler#readme",
+    "devDependencies": {
+        "autoprefixer": "^6.0.2",
+        "babel-cli": "^6.10.1",
+        "babel-polyfill": "^6.9.1",
+        "babel-preset-es2015": "^6.13.2",
+        "browser-sync": "^2.9.3",
+        "grunt": "^1.0.1",
+        "grunt-autoprefixer": "^3.0.4",
+        "grunt-browser-sync": "^2.2.0",
+        "grunt-browserify": "^5.0.0",
+        "grunt-contrib-clean": "^1.0.0",
+        "grunt-contrib-concat": "^1.0.1",
+        "grunt-contrib-connect": "^1.0.2",
+        "grunt-contrib-copy": "^1.0.0",
+        "grunt-contrib-cssmin": "^1.0.1",
+        "grunt-contrib-htmlmin": "^1.5.0",
+        "grunt-contrib-imagemin": "^1.0.1",
+        "grunt-contrib-uglify": "^1.0.1",
+        "grunt-contrib-watch": "^1.0.0",
+        "grunt-filerev": "^2.3.1",
+        "grunt-postcss": "^0.8.0",
+        "grunt-usemin": "^3.1.1",
+        "load-grunt-tasks": "*",
+        "postcss-cli": "^2.1.0",
+        "postcss-import": "^7.0.0",
+        "time-grunt": "^1.3.0"
+    }
+}
