@@ -7,14 +7,15 @@
  * @Date:   2016-09-01-11:08:43
  *
  * @(demo)Last modified by:   SuperWoods
- * @(demo)Last modified time: 2016-10-10-07:48:19
+ * @(demo)Last modified time: 2016-10-10-08:12:00
  */
 // var MAIN_dist = 'dist/';
 var MAIN_URL_url0 = 'http://203.192.6.89/xhs/';
 var MAIN_URL = MAIN_URL_url0 + 'static/e11275/11275.htm';
 var Crawler = require("crawler");
 var jsdom = require('jsdom');
-var utils = require('./utils');
+
+var utils = require('./utils'); // `./` 指向本层目录
 
 var MAIN_JSON = {
     max: null,
@@ -90,26 +91,36 @@ var c = new Crawler({
     }
 });
 
-// function one(chapter) {
-//     console.log(chapter)
-//     c.queue([{
-//         uri: BOOK_URL + chapter.num + '.html',
-//         jQuery: jsdom,
-//         forceUTF8: true,
-//         // incomingEncoding: 'gbk',
-//         // The global callback won't be called
-//         callback: function (error, result, $) {
-//             var content = $('#contents').html();
-//             // write_chapter
-//             // utils.write_chapter(chapter, content);
-//
-//             // write_config content json
-//             chapter.content = content;
-//             utils.write_config(chapter, true); // book(JSON obj), setNameOn(Boolean)
-//             // process.exit(); // 开启这个会导致**异步写入(fs.writeFile)**失效
-//         }
-//     }]);
-// }
+function one(chapter) {
+    console.log(chapter)
+    c.queue([{
+        uri: BOOK_URL + chapter.num + '.html',
+        jQuery: jsdom,
+        forceUTF8: true,
+        // incomingEncoding: 'gbk',
+        // The global callback won't be called
+        callback: function (error, result, $) {
+            var content = $('#contents').html();
+            // write_chapter
+            // utils.write_chapter(chapter, content);
 
-c.queue(MAIN_URL);
-// $ node examples/c.js
+            // write_config content json
+            chapter.content = content;
+            utils.write_config(chapter, true); // book(JSON obj), setNameOn(Boolean)
+            // process.exit(); // 开启这个会导致**异步写入(fs.writeFile)**失效
+        }
+    }]);
+}
+
+function start() {
+    c.queue(MAIN_URL);
+}
+
+start();
+/*
+    启动方式：
+    $ cd tool
+    $ node c.js
+
+    这样会在 tool 目录建立 dist 文件夹输出结果
+*/
