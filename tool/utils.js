@@ -7,21 +7,24 @@
  * @Date:   2016-09-01-02:33:53
  *
  * @(demo)Last modified by:   SuperWoods
- * @(demo)Last modified time: 2016-10-10-06:08:32
+ * @(demo)Last modified time: 2016-10-10-07:35:41
  */
 // var BOOK_ID = '8/8130';
 // var BOOK_ID = '8/8130';
 var fs = require('fs')
 var debug = require('debug')('crawler')
 
-exports.mkdir = function (folder) {
+exports.mkdir = function (obj) {
     var mkdirp = require('mkdirp');
-    mkdirp('dist/' + folder, function (err) {
+    var dist = obj.dist;
+    if (dist === undefined) {
+        dist = 'dist/';
+    }
+    mkdirp(dist, function (err) {
         if (err) console.error(err)
         else debug('pow!')
     });
-
-    console.log('mkdir:', folder + ' finish!');
+    console.log('mkdir:', dist + ' finish!');
 }
 
 exports.write_chapter = function (chapter, content) {
@@ -36,17 +39,19 @@ exports.write_chapter = function (chapter, content) {
     console.log('write_chapter finish!');
 }
 
-exports.write_config = function (book, setNameOn) {
-    var content = JSON.stringify(book, null, 4); // Indented 4 spaces
-    var fileName = 'dist/xhna.json';
+exports.write_config = function (obj) {
+    var json = obj.json;
+    var dist = obj.dist;
+    // var isSetName = obj.isSetName;
+    // // jsonString json
+    // if (isSetName) {
+    //     dist = 'dist/img/' + json.num + '.json';
+    //     console.log('isSetName:', isSetName);
+    // }
 
-    // content json
-    if (setNameOn === true) {
-        console.log(content);
-        fileName = 'dist/img/' + book.num + '.json';
-    }
-
-    fs.writeFile(fileName, content, 'utf8', function (err) {
+    // format json
+    json = JSON.stringify(json, null, 4); // Indented 4 spaces
+    fs.writeFile(dist, json, 'utf8', function (err) {
         if (err) throw err;
         debug('It\'s saved! JSON');
     });
